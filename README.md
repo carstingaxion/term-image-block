@@ -12,7 +12,11 @@ Display taxonomy term images with automatic detection and manual selection.
 
 ## Description
 
+[![Playground Demo Link](https://img.shields.io/badge/WordPress_Playground-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/carstingaxion/term-image-block/main/.wordpress-org/blueprints/blueprint.json) [![Build, test & measure](https://github.com/carstingaxion/term-image-block/actions/workflows/build-test-measure.yml/badge.svg?branch=main)](https://github.com/carstingaxion/term-image-block/actions/workflows/build-test-measure.yml)
+
 The Term Image block allows you to elegantly showcase taxonomy term images throughout your WordPress site. Perfect for category pages, tag archives, and custom taxonomy displays, with full support for FSE templates.
+
+![Term Image Block in use inside the WordPress block editor, but without any image applied - the empty state.](.wordpress-org/screenshot-1.png)
 
 ### Key Features
 

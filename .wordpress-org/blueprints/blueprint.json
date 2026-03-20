@@ -1,0 +1,53 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/post.php?post=42&action=edit",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
+  "steps": [
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Term Image Block",
+        "blogdescription": "Enhancing WordPress with term images and block to show them.",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "login",
+      "username": "admin"
+    },
+    {
+      "step": "updateUserMeta",
+      "meta": {
+          "admin_color": "modern"
+      },
+      "userId": 1
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php';\n$page_args = array(\n'post_type'    => 'post',\n'post_status'  => 'publish',\n'post_title'   => 'Term Image Block',\n'post_content' => '<!-- wp:group {\"align\":\"wide\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|50\",\"bottom\":\"var:preset|spacing|50\"},\"blockGap\":\"var:preset|spacing|40\"}},\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group alignwide\" style=\"padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)\"><!-- wp:paragraph -->\n<p>A collection of examples showing different ways to use the Term Image block across your site.</p>\n<!-- /wp:paragraph -->\n<!-- wp:separator {\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-wide\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Basic Usage</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>The simplest use: select a taxonomy and term in the sidebar, then upload an image. The block displays it with default settings.</p>\n<!-- /wp:paragraph -->\n<!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\"} /-->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">With Caption</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Enable the caption toggle to display the term name below the image — or write your own custom caption.</p>\n<!-- /wp:paragraph -->\n<!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\",\"showCaption\":true} /-->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Square Aspect Ratio</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Lock the image to a 1:1 square crop — great for consistent grid layouts or team/category cards.</p>\n<!-- /wp:paragraph -->\n<!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\",\"aspectRatio\":\"1-1\",\"showCaption\":true} /-->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wide Cinematic Banner</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Use the 21:9 aspect ratio at full width for a dramatic hero-style term banner.</p>\n<!-- /wp:paragraph -->\n<!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\",\"imageSize\":\"full\",\"aspectRatio\":\"21-9\",\"align\":\"wide\"} /-->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Rounded Style</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Apply the \"Rounded\" block style (inherited from core/image) for circular avatars or soft profile images.</p>\n<!-- /wp:paragraph -->\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"200px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:200px\"><!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\",\"imageSize\":\"medium\",\"aspectRatio\":\"1-1\",\"className\":\"is-style-rounded\"} /--></div>\n<!-- /wp:column -->\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Category Name</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Pair a rounded term image with a heading and description for a clean category spotlight layout.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Linked to Term Archive</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Toggle \"Link to term archive\" so clicking the image navigates visitors to the full term archive page.</p>\n<!-- /wp:paragraph -->\n<!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\",\"aspectRatio\":\"16-9\",\"linkToTerm\":true,\"showCaption\":true} /-->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Category Grid</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Combine multiple term images in a columns layout for a category overview section.</p>\n<!-- /wp:paragraph -->\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:carstingaxion/term-image-block {\"termId\":1,\"taxonomy\":\"category\",\"imageSize\":\"medium\",\"aspectRatio\":\"1-1\",\"linkToTerm\":true,\"showCaption\":true} /--></div>\n<!-- /wp:column -->\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:carstingaxion/term-image-block {\"termId\":2,\"taxonomy\":\"category\",\"imageSize\":\"medium\",\"aspectRatio\":\"1-1\",\"linkToTerm\":true,\"showCaption\":true} /--></div>\n<!-- /wp:column -->\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:carstingaxion/term-image-block {\"termId\":3,\"taxonomy\":\"category\",\"imageSize\":\"medium\",\"aspectRatio\":\"1-1\",\"linkToTerm\":true,\"showCaption\":true} /--></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n<!-- wp:separator {\"className\":\"is-style-dots\"} -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity is-style-dots\"/>\n<!-- /wp:separator -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">FSE Template Usage</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>When placed in an FSE template (e.g. <strong>Category Archive</strong>), leave the term selector empty. The block auto-detects the current archive term at render time — no configuration needed.</p>\n<!-- /wp:paragraph -->\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>&lt;!-- wp:carstingaxion/term-image-block {\"imageSize\":\"full\",\"aspectRatio\":\"21-9\"} /--&gt;</code></pre>\n<!-- /wp:code -->\n<!-- wp:paragraph -->\n<p>You can also lock it to a specific taxonomy (e.g. \"Categories\") so it only resolves terms from that taxonomy, even on single post views.</p>\n<!-- /wp:paragraph -->\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>&lt;!-- wp:carstingaxion/term-image-block {\"taxonomy\":\"category\",\"imageSize\":\"large\",\"aspectRatio\":\"16-9\",\"showCaption\":true} /--&gt;</code></pre>\n<!-- /wp:code --></div>\n<!-- /wp:group -->',\n'import_id'    => 42,\n);\n$page_id = wp_insert_post( $page_args, true );\nif ( is_wp_error( $page_id ) ) {\nerror_log( 'addPost error: ' . $page_id->get_error_message() );\n}",
+      "progress": {
+        "caption": "Crafting a 'Term Image Block' Demo Page"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "git:directory",
+        "url": "https://github.com/carstingaxion/term-image-block",
+        "ref": "HEAD"
+      },
+      "options": {
+        "activate": true
+      },
+      "progress": {
+        "caption": "Installing plugin from GitHub: carstingaxion/term-image-block"
+      }
+    }
+  ]
+}
