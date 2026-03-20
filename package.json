@@ -1,0 +1,53 @@
+{
+	"name": "@carstingaxion/term-image-block",
+	"version": "0.1.0",
+	"description": "Display taxonomy term images with automatic detection and manual selection.",
+	"author": "Carsten Bach",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"term image",
+		"taxonomy",
+		"image display"
+	],
+	"homepage": "https://github.com/carstingaxion/term-image-block#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/carstingaxion/term-image-block.git"
+	},
+	"bugs": {
+		"url": "https://github.com/carstingaxion/term-image-block/issues"
+	},
+	"main": "build/index.js",
+	"devDependencies": {
+		"@wordpress/icons": "^12.0.0",
+		"@wordpress/scripts": "^30.15.0"
+	},
+	"scripts": {
+		"build": "wp-scripts build --webpack-copy-php",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"format": "wp-scripts format",
+		"i18n:pot": " wp i18n make-pot . --exclude=node_modules,vendor",
+		"i18n:json": "wp i18n make-json languages --no-purge",
+		"i18n:php": "wp i18n make-php languages",
+		"lint:css": "wp-scripts lint-style",
+		"lint:css:fix": "wp-scripts lint-style --fix",
+		"lint:js": "wp-scripts lint-js",
+		"lint:js:fix": "wp-scripts lint-js --fix",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:md:js": "wp-scripts lint-md-js",
+		"lint:php": "vendor/bin/phpcs --standard=.phpcs.xml --extensions=php --colors -s -p -v .",
+		"lint:php:fix": "vendor/bin/phpcbf --standard=.phpcs.xml -p -v .",
+		"lint:phpstan": "vendor/bin/phpstan analyze -vv --memory-limit=2G",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"test:js": "wp-scripts test-unit-js --config jest.config.js",
+		"test:js:watch": "wp-scripts test-unit-js --config jest.config.js --watch",
+		"test:js:coverage": "wp-scripts test-unit-js --config jest.config.js --coverage",
+		"test:php": "vendor/bin/phpunit",
+		"test:php:verbose": "vendor/bin/phpunit --testdox",
+		"test:php:coverage": "vendor/bin/phpunit --coverage-html=coverage",
+		"start": "wp-scripts start --blocks-manifest"
+	}
+}

@@ -1,0 +1,133 @@
+/**
+ * Term Image — Editor-Only Styles.
+ *
+ * Applied inside the block editor only. Uses BEM naming
+ * consistent with the shared stylesheet.
+ *
+ * @package Carstingaxion\TermImageDisplay
+ * @since   0.1.0
+ */
+
+.wp-block-carstingaxion-term-image-block {
+
+	/**
+	 * Canvas placeholder — checkerboard pattern background
+	 * used when no image is assigned.
+	 */
+	.term-image-block__canvas {
+		background-color: #f0f0f0;
+		background-image:
+			linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+			linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+			linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+			linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+		background-size: 20px 20px;
+		background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 200px;
+	}
+
+	/**
+	 * Badge — floating overlay with block identification info.
+	 */
+	.term-image-block__badge {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+		padding: 12px 20px;
+		border-radius: 4px;
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(4px);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		max-width: 80%;
+		text-align: center;
+	}
+
+	/**
+	 * Badge icon — dashicons format-image icon.
+	 */
+	.term-image-block__badge-icon {
+		font-size: 24px;
+		color: #949494;
+		line-height: 1;
+	}
+
+	/**
+	 * Badge label — primary identification text.
+	 */
+	.term-image-block__badge-label {
+		font-size: 13px;
+		font-weight: 600;
+		color: #1e1e1e;
+		line-height: 1.4;
+	}
+
+	/**
+	 * Badge hint — secondary descriptive text.
+	 */
+	.term-image-block__badge-hint {
+		font-size: 11px;
+		color: #757575;
+		line-height: 1.3;
+	}
+
+	/**
+	 * Media controls — vertical layout for upload/replace buttons.
+	 */
+	.term-image-block__media-controls {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		align-items: flex-start;
+	}
+
+	/**
+	 * Preview — bordered container for the current term image.
+	 */
+	.term-image-block__preview {
+		width: 100%;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	/**
+	 * Preview image — fills the preview container.
+	 */
+	.term-image-block__preview-image {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	/**
+	 * Preview actions — button row below the preview image.
+	 */
+	.term-image-block__preview-actions {
+		padding: 12px;
+		display: flex;
+		gap: 8px;
+		background: #f9f9f9;
+		border-top: 1px solid #ddd;
+	}
+
+	/**
+	 * Help text — italic hint below the media controls.
+	 */
+	.term-image-block__help-text {
+		margin: 8px 0 0;
+		font-size: 12px;
+		color: #757575;
+		font-style: italic;
+	}
+
+	/**
+	 * Notice spacing fix within the inspector panel.
+	 */
+	.components-notice {
+		margin: 0 0 12px;
+	}
+}

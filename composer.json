@@ -1,0 +1,46 @@
+{
+	"name": "carstingaxion/term-image-block",
+	"description": "Display taxonomy term images with automatic detection and manual selection.",
+	"license": "GPL-2.0-or-later",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"wordpress",
+		"wordpress-plugin",
+		"term image",
+		"taxonomy"
+	],
+	"authors": [
+		{
+			"name": "figuren.theater",
+			"email": "info@figuren.theater"
+		},
+		{
+			"name": "Carsten Bach",
+			"email": "mail@carsten-bach.de",
+			"homepage": "https://carsten-bach.de",
+			"role": "Developer"
+		}
+	],
+	"homepage": "https://websites.fuer.figuren.theater",
+	"support": {
+		"email": "info@figuren.theater",
+		"issues": "https://github.com/carstingaxion/term-image-block/issues",
+		"source": "https://github.com/carstingaxion/term-image-block"
+	},
+	"require": {
+		"php": ">=8.2"
+	},
+	"require-dev": {
+		"figuren-theater/code-quality": "*"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"ergebnis/composer-normalize": true,
+			"koodimonni/composer-dropin-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"sort-packages": true
+	}
+}

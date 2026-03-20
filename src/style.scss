@@ -1,0 +1,141 @@
+/**
+ * Term Image — Shared Styles.
+ *
+ * Applied both on the frontend and within the block editor.
+ * Follows BEM naming: .term-image-block is the Block,
+ * elements use __ and modifiers use --.
+ *
+ * @package Carstingaxion\TermImageDisplay
+ * @since   0.1.0
+ */
+
+.wp-block-carstingaxion-term-image-block {
+	margin: 0;
+
+	/**
+	 * Figure element — flex column layout for image + caption.
+	 */
+	.term-image-block__figure {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	/**
+	 * Image wrapper — constrains the image and handles overflow.
+	 */
+	.term-image-block__image-wrapper {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	/**
+	 * Image element — fills the wrapper with cover behavior.
+	 */
+	.term-image-block__image {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: cover;
+	}
+
+	/**
+	 * Caption element — subtle centered text below the image.
+	 */
+	.term-image-block__caption {
+		font-size: 0.875em;
+		color: #6b6b6b;
+		text-align: center;
+		margin: 0;
+	}
+
+	/**
+	 * Empty state — visible when no image is set (frontend only).
+	 */
+	.term-image-block__empty {
+		padding: 2rem;
+		text-align: center;
+		color: #757575;
+		font-size: 0.875em;
+	}
+
+	/**
+	 * Aspect ratio modifiers.
+	 *
+	 * Each modifier sets the aspect-ratio on the wrapper and
+	 * forces the image to fill the constrained area.
+	 */
+	&.term-image-block--aspect-ratio-1-1 {
+
+		.term-image-block__image-wrapper {
+			aspect-ratio: 1 / 1;
+		}
+
+		.term-image-block__image {
+			height: 100%;
+		}
+	}
+
+	&.term-image-block--aspect-ratio-16-9 {
+
+		.term-image-block__image-wrapper {
+			aspect-ratio: 16 / 9;
+		}
+
+		.term-image-block__image {
+			height: 100%;
+		}
+	}
+
+	&.term-image-block--aspect-ratio-9-16 {
+
+		.term-image-block__image-wrapper {
+			aspect-ratio: 9 / 16;
+		}
+
+		.term-image-block__image {
+			height: 100%;
+		}
+	}
+
+	&.term-image-block--aspect-ratio-21-9 {
+
+		.term-image-block__image-wrapper {
+			aspect-ratio: 21 / 9;
+		}
+
+		.term-image-block__image {
+			height: 100%;
+		}
+	}
+
+	/**
+	 * Alignment modifiers.
+	 */
+	&.alignleft,
+	&.alignright {
+		max-width: 360px;
+	}
+
+	&.aligncenter {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/**
+	 * Rounded style — inherited from core/image block styles.
+	 */
+	&.is-style-rounded {
+
+		.term-image-block__image-wrapper {
+			border-radius: 9999px;
+			overflow: hidden;
+		}
+
+		.term-image-block__image {
+			border-radius: 9999px;
+		}
+	}
+}

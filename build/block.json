@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "carstingaxion/term-image-block",
+  "version": "0.1.0",
+  "title": "Term Image",
+  "category": "media",
+  "icon": "format-image",
+  "description": "Display taxonomy term images with automatic detection and manual selection",
+  "keywords": [
+    "taxonomy",
+    "term",
+    "category",
+    "tag",
+    "image",
+    "fse",
+    "template"
+  ],
+  "attributes": {
+    "termId": {
+      "type": "number",
+      "default": 0
+    },
+    "taxonomy": {
+      "type": "string",
+      "default": ""
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "large"
+    },
+    "aspectRatio": {
+      "type": "string",
+      "default": "auto"
+    },
+    "linkToTerm": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "customCaption": {
+      "type": "string",
+      "default": ""
+    },
+    "hideIfNoImage": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": [
+      "left",
+      "center",
+      "right",
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "shadow": true,
+    "dimensions": {
+      "width": true
+    }
+  },
+  "textdomain": "term-image-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
