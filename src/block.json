@@ -54,6 +54,12 @@
             "width": true
         }
 	},
+	"usesContext": [
+		"postId",
+		"postType",
+		"termId",
+		"taxonomy"
+	],
 	"textdomain": "term-image-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

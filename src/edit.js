@@ -63,20 +63,40 @@ import { TERM_IMAGE_META_KEY } from './constants';
  * delegating data retrieval to custom hooks and rendering to
  * focused presentational components.
  *
+ * Supports `usesContext` — when a parent block provides `termId`,
+ * `taxonomy`, `postId`, or `postType` via block context, those values
+ * are used as fallbacks when the block's own attributes are empty.
+ *
  * @param {Object}   props               Block edit props.
  * @param {Object}   props.attributes    Block attributes.
  * @param {Function} props.setAttributes Block attribute setter.
+ * @param {Object}   props.context       Block context from parent blocks.
  * @return {Element} Block editor element.
  */
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit( { attributes, setAttributes, context } ) {
 	const {
-		termId,
-		taxonomy,
 		imageSize,
 		aspectRatio,
 		showCaption,
 		customCaption,
 	} = attributes;
+
+	/*
+	 * Resolve effective termId and taxonomy from attributes,
+	 * falling back to block context values when attributes are empty.
+	 */
+	const contextTermId = context?.termId ? parseInt( context.termId, 10 ) : 0;
+	const contextTaxonomy = context?.taxonomy || '';
+
+	/** @type {number} Effective term ID — attribute takes priority over context. */
+	const termId = attributes.termId || contextTermId;
+
+	/** @type {string} Effective taxonomy — attribute takes priority over context. */
+	const taxonomy = attributes.taxonomy || contextTaxonomy;
+
+	/** @type {boolean} Whether values came from context rather than attributes. */
+	const isFromContext = ( ! attributes.termId && contextTermId > 0 ) ||
+		( ! attributes.taxonomy && contextTaxonomy !== '' );
 
 	/* ── Hooks ─────────────────────────────────────────────────── */
 
@@ -86,7 +106,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const { termRecord, isTermLoading } = useTermRecord(
 		termId,
 		taxonomy,
-		isInFSETemplate
+		false /* Never skip in editor — we need the record for preview. */
 	);
 
 	const {
@@ -155,12 +175,67 @@ export default function Edit( { attributes, setAttributes } ) {
 	/* ── FSE Template Context ──────────────────────────────────── */
 
 	if ( isInFSETemplate ) {
-		const selectedTaxLabel = taxonomy
-			? publicTaxonomies.find( ( t ) => t.slug === taxonomy )?.name ||
-			  taxonomy
+		/*
+		 * In FSE templates, if we have a resolved term from context,
+		 * show the actual image preview instead of a placeholder.
+		 */
+		if ( termId > 0 && termRecord ) {
+			const selectedTaxLabel = taxonomy
+				? publicTaxonomies.find( ( t ) => t.slug === taxonomy )?.name || taxonomy
+				: '';
+
+			const contextLabel = isFromContext
+				? sprintf(
+					/* translators: %1$s: term name, %2$s: taxonomy label */
+					__( 'From context: %1$s (%2$s)', 'term-image-block' ),
+					termName,
+					selectedTaxLabel
+				)
+				: '';
+
+			return (
+				<>
+					<FSEInspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+						taxonomy={ attributes.taxonomy }
+						publicTaxonomies={ publicTaxonomies }
+						contextInfo={ contextLabel }
+					/>
+					<div { ...blockProps }>
+						{ imageUrl ? (
+							<TermImageFigure
+								imageUrl={ imageUrl }
+								termName={ termName }
+								showCaption={ showCaption }
+								caption={ caption }
+							/>
+						) : (
+							<PlaceholderCanvas
+								label={ termName
+									? sprintf(
+										/* translators: %s: term name */
+										__( 'Term Image — %s', 'term-image-block' ),
+										termName
+									)
+									: __( 'Term Image', 'term-image-block' )
+								}
+								hint={ __( 'No image set for this term', 'term-image-block' ) }
+								showCaption={ showCaption }
+								caption={ customCaption || termName || __( 'Term name', 'term-image-block' ) }
+							/>
+						) }
+					</div>
+				</>
+			);
+		}
+
+		const selectedTaxLabel = attributes.taxonomy
+			? publicTaxonomies.find( ( t ) => t.slug === attributes.taxonomy )?.name ||
+			  attributes.taxonomy
 			: '';
 
-		const badgeLabel = taxonomy
+		const badgeLabel = attributes.taxonomy
 			? sprintf(
 					/* translators: %s: taxonomy label */
 					__( 'Term Image — %s', 'term-image-block' ),
@@ -168,7 +243,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			  )
 			: __( 'Term Image — Auto-detect', 'term-image-block' );
 
-		const badgeHint = taxonomy
+		const badgeHint = attributes.taxonomy
 			? __( 'Resolves from current post or archive', 'term-image-block' )
 			: __( 'Uses queried term on archive pages', 'term-image-block' );
 
@@ -177,7 +252,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<FSEInspector
 					attributes={ attributes }
 					setAttributes={ setAttributes }
-					taxonomy={ taxonomy }
+					taxonomy={ attributes.taxonomy }
 					publicTaxonomies={ publicTaxonomies }
 				/>
 				<div { ...blockProps }>
@@ -205,7 +280,9 @@ export default function Edit( { attributes, setAttributes } ) {
 	/** @type {string} */
 	const placeholderHint = termId
 		? __( 'Use the Term Image panel to upload one', 'term-image-block' )
-		: __( 'Select a taxonomy and term in the sidebar', 'term-image-block' );
+		: isFromContext
+			? __( 'Receiving term from parent block context', 'term-image-block' )
+			: __( 'Select a taxonomy and term in the sidebar', 'term-image-block' );
 
 	/** @type {string} */
 	const placeholderCaption =
@@ -216,8 +293,11 @@ export default function Edit( { attributes, setAttributes } ) {
 			<StandardInspector
 				attributes={ attributes }
 				setAttributes={ setAttributes }
-				taxonomy={ taxonomy }
-				termId={ termId }
+				taxonomy={ attributes.taxonomy }
+				termId={ attributes.termId }
+				effectiveTermId={ termId }
+				effectiveTaxonomy={ taxonomy }
+				isFromContext={ isFromContext }
 				publicTaxonomies={ publicTaxonomies }
 				terms={ terms }
 				isTermsLoading={ isTermsLoading }
@@ -233,7 +313,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				onClearMessages={ clearMessages }
 			/>
 
-			{ termId > 0 && (
+			{ attributes.termId > 0 && (
 				<BlockControls>
 					<ToolbarGroup>
 						<ToolbarButton

@@ -16,18 +16,15 @@ import { store as coreStore } from '@wordpress/core-data';
 /**
  * Fetch a single term record including meta.
  *
- * Skips resolution in FSE template context where terms are resolved
- * server-side.
- *
- * @param {number}  termId          Term ID.
- * @param {string}  taxonomy        Taxonomy slug.
- * @param {boolean} isInFSETemplate Whether the editor is in FSE template context.
+ * @param {number}  termId   Term ID.
+ * @param {string}  taxonomy Taxonomy slug.
+ * @param {boolean} skip     Whether to skip resolution.
  * @return {{ termRecord: Object|null, isTermLoading: boolean }} Returns an object containing the term record and a loading state.
  */
-export default function useTermRecord( termId, taxonomy, isInFSETemplate ) {
+export default function useTermRecord( termId, taxonomy, skip = false ) {
 	return useSelect(
 		( select ) => {
-			if ( ! termId || ! taxonomy || isInFSETemplate ) {
+			if ( ! termId || ! taxonomy || skip ) {
 				return { termRecord: null, isTermLoading: false };
 			}
 
@@ -42,6 +39,6 @@ export default function useTermRecord( termId, taxonomy, isInFSETemplate ) {
 				] ),
 			};
 		},
-		[ termId, taxonomy, isInFSETemplate ]
+		[ termId, taxonomy, skip ]
 	);
 }

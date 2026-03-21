@@ -1,1 +1,128 @@
-.wp-block-carstingaxion-term-image-block{margin:0}.wp-block-carstingaxion-term-image-block .term-image-block__figure{display:flex;flex-direction:column;gap:.5rem;margin:0}.wp-block-carstingaxion-term-image-block .term-image-block__image-wrapper{overflow:hidden;position:relative;width:100%}.wp-block-carstingaxion-term-image-block .term-image-block__image{display:block;height:auto;-o-object-fit:cover;object-fit:cover;width:100%}.wp-block-carstingaxion-term-image-block .term-image-block__caption{color:#6b6b6b;font-size:.875em;margin:0;text-align:center}.wp-block-carstingaxion-term-image-block .term-image-block__empty{color:#757575;font-size:.875em;padding:2rem;text-align:center}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-1-1 .term-image-block__image-wrapper{aspect-ratio:1/1}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-1-1 .term-image-block__image{height:100%}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-16-9 .term-image-block__image-wrapper{aspect-ratio:16/9}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-16-9 .term-image-block__image{height:100%}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-9-16 .term-image-block__image-wrapper{aspect-ratio:9/16}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-9-16 .term-image-block__image{height:100%}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-21-9 .term-image-block__image-wrapper{aspect-ratio:21/9}.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-21-9 .term-image-block__image{height:100%}.wp-block-carstingaxion-term-image-block.alignleft,.wp-block-carstingaxion-term-image-block.alignright{max-width:360px}.wp-block-carstingaxion-term-image-block.aligncenter{margin-left:auto;margin-right:auto}.wp-block-carstingaxion-term-image-block.is-style-rounded .term-image-block__image-wrapper{border-radius:9999px;overflow:hidden}.wp-block-carstingaxion-term-image-block.is-style-rounded .term-image-block__image{border-radius:9999px}
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * Term Image — Shared Styles.
+ *
+ * Applied both on the frontend and within the block editor.
+ * Follows BEM naming: .term-image-block is the Block,
+ * elements use __ and modifiers use --.
+ *
+ * @package Carstingaxion\TermImageDisplay
+ * @since   0.1.0
+ */
+.wp-block-carstingaxion-term-image-block {
+  margin: 0;
+  /**
+   * Figure element — flex column layout for image + caption.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Image wrapper — constrains the image and handles overflow.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Image element — fills the wrapper with cover behavior.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Caption element — subtle centered text below the image.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__caption {
+  font-size: 0.875em;
+  color: #6b6b6b;
+  text-align: center;
+  margin: 0;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Empty state — visible when no image is set (frontend only).
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__empty {
+  padding: 2rem;
+  text-align: center;
+  color: #757575;
+  font-size: 0.875em;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Aspect ratio modifiers.
+   *
+   * Each modifier sets the aspect-ratio on the wrapper and
+   * forces the image to fill the constrained area.
+   */
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-1-1 .term-image-block__image-wrapper {
+  aspect-ratio: 1/1;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-1-1 .term-image-block__image {
+  height: 100%;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-16-9 .term-image-block__image-wrapper {
+  aspect-ratio: 16/9;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-16-9 .term-image-block__image {
+  height: 100%;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-9-16 .term-image-block__image-wrapper {
+  aspect-ratio: 9/16;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-9-16 .term-image-block__image {
+  height: 100%;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-21-9 .term-image-block__image-wrapper {
+  aspect-ratio: 21/9;
+}
+.wp-block-carstingaxion-term-image-block.term-image-block--aspect-ratio-21-9 .term-image-block__image {
+  height: 100%;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Alignment modifiers.
+   */
+}
+.wp-block-carstingaxion-term-image-block.alignleft, .wp-block-carstingaxion-term-image-block.alignright {
+  max-width: 360px;
+}
+.wp-block-carstingaxion-term-image-block.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Rounded style — inherited from core/image block styles.
+   */
+}
+.wp-block-carstingaxion-term-image-block.is-style-rounded .term-image-block__image-wrapper {
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.wp-block-carstingaxion-term-image-block.is-style-rounded .term-image-block__image {
+  border-radius: 9999px;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
