@@ -74,12 +74,7 @@ import { TERM_IMAGE_META_KEY } from './constants';
  * @return {Element} Block editor element.
  */
 export default function Edit( { attributes, setAttributes, context } ) {
-	const {
-		imageSize,
-		aspectRatio,
-		showCaption,
-		customCaption,
-	} = attributes;
+	const { imageSize, aspectRatio, showCaption, customCaption } = attributes;
 
 	/*
 	 * Resolve effective termId and taxonomy from attributes,
@@ -95,7 +90,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 	const taxonomy = attributes.taxonomy || contextTaxonomy;
 
 	/** @type {boolean} Whether values came from context rather than attributes. */
-	const isFromContext = ( ! attributes.termId && contextTermId > 0 ) ||
+	const isFromContext =
+		( ! attributes.termId && contextTermId > 0 ) ||
 		( ! attributes.taxonomy && contextTaxonomy !== '' );
 
 	/* ── Hooks ─────────────────────────────────────────────────── */
@@ -181,16 +177,17 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		 */
 		if ( termId > 0 && termRecord ) {
 			const selectedTaxLabel = taxonomy
-				? publicTaxonomies.find( ( t ) => t.slug === taxonomy )?.name || taxonomy
+				? publicTaxonomies.find( ( t ) => t.slug === taxonomy )?.name ||
+				  taxonomy
 				: '';
 
 			const contextLabel = isFromContext
 				? sprintf(
-					/* translators: %1$s: term name, %2$s: taxonomy label */
-					__( 'From context: %1$s (%2$s)', 'term-image-block' ),
-					termName,
-					selectedTaxLabel
-				)
+						/* translators: %1$s: term name, %2$s: taxonomy label */
+						__( 'From context: %1$s (%2$s)', 'term-image-block' ),
+						termName,
+						selectedTaxLabel
+				  )
 				: '';
 
 			return (
@@ -212,17 +209,28 @@ export default function Edit( { attributes, setAttributes, context } ) {
 							/>
 						) : (
 							<PlaceholderCanvas
-								label={ termName
-									? sprintf(
-										/* translators: %s: term name */
-										__( 'Term Image — %s', 'term-image-block' ),
-										termName
-									)
-									: __( 'Term Image', 'term-image-block' )
+								label={
+									termName
+										? sprintf(
+												/* translators: %s: term name */
+												__(
+													'Term Image — %s',
+													'term-image-block'
+												),
+												termName
+										  )
+										: __( 'Term Image', 'term-image-block' )
 								}
-								hint={ __( 'No image set for this term', 'term-image-block' ) }
+								hint={ __(
+									'No image set for this term',
+									'term-image-block'
+								) }
 								showCaption={ showCaption }
-								caption={ customCaption || termName || __( 'Term name', 'term-image-block' ) }
+								caption={
+									customCaption ||
+									termName ||
+									__( 'Term name', 'term-image-block' )
+								}
 							/>
 						) }
 					</div>
@@ -231,8 +239,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		}
 
 		const selectedTaxLabel = attributes.taxonomy
-			? publicTaxonomies.find( ( t ) => t.slug === attributes.taxonomy )?.name ||
-			  attributes.taxonomy
+			? publicTaxonomies.find( ( t ) => t.slug === attributes.taxonomy )
+					?.name || attributes.taxonomy
 			: '';
 
 		const badgeLabel = attributes.taxonomy
@@ -278,11 +286,24 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		: __( 'Term Image', 'term-image-block' );
 
 	/** @type {string} */
-	const placeholderHint = termId
-		? __( 'Use the Term Image panel to upload one', 'term-image-block' )
-		: isFromContext
-			? __( 'Receiving term from parent block context', 'term-image-block' )
-			: __( 'Select a taxonomy and term in the sidebar', 'term-image-block' );
+	let placeholderHint;
+
+	if ( termId ) {
+		placeholderHint = __(
+			'Use the Term Image panel to upload one',
+			'term-image-block'
+		);
+	} else if ( isFromContext ) {
+		placeholderHint = __(
+			'Receiving term from parent block context',
+			'term-image-block'
+		);
+	} else {
+		placeholderHint = __(
+			'Select a taxonomy and term in the sidebar',
+			'term-image-block'
+		);
+	}
 
 	/** @type {string} */
 	const placeholderCaption =
