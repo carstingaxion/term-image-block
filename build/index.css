@@ -1,1 +1,143 @@
-.wp-block-carstingaxion-term-image-block .term-image-block__canvas{align-items:center;background-color:#f0f0f0;background-image:linear-gradient(45deg,#e0e0e0 25%,transparent 0),linear-gradient(-45deg,#e0e0e0 25%,transparent 0),linear-gradient(45deg,transparent 75%,#e0e0e0 0),linear-gradient(-45deg,transparent 75%,#e0e0e0 0);background-position:0 0,0 10px,10px -10px,-10px 0;background-size:20px 20px;display:flex;justify-content:center;min-height:200px}.wp-block-carstingaxion-term-image-block .term-image-block__badge{align-items:center;backdrop-filter:blur(4px);background:hsla(0,0%,100%,.85);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:4px;max-width:80%;padding:12px 20px;text-align:center}.wp-block-carstingaxion-term-image-block .term-image-block__badge-icon{color:#949494;font-size:24px;line-height:1}.wp-block-carstingaxion-term-image-block .term-image-block__badge-label{color:#1e1e1e;font-size:13px;font-weight:600;line-height:1.4}.wp-block-carstingaxion-term-image-block .term-image-block__badge-hint{color:#757575;font-size:11px;line-height:1.3}.wp-block-carstingaxion-term-image-block .term-image-block__media-controls{align-items:flex-start;display:flex;flex-direction:column;gap:12px}.wp-block-carstingaxion-term-image-block .term-image-block__preview{border:1px solid #ddd;border-radius:4px;overflow:hidden;width:100%}.wp-block-carstingaxion-term-image-block .term-image-block__preview-image{display:block;height:auto;width:100%}.wp-block-carstingaxion-term-image-block .term-image-block__preview-actions{background:#f9f9f9;border-top:1px solid #ddd;display:flex;gap:8px;padding:12px}.wp-block-carstingaxion-term-image-block .term-image-block__help-text{color:#757575;font-size:12px;font-style:italic;margin:8px 0 0}.wp-block-carstingaxion-term-image-block .components-notice{margin:0 0 12px}
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * Term Image — Editor-Only Styles.
+ *
+ * Applied inside the block editor only. Uses BEM naming
+ * consistent with the shared stylesheet.
+ *
+ * @package Carstingaxion\TermImageDisplay
+ * @since   0.1.0
+ */
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Canvas placeholder — checkerboard pattern background
+   * used when no image is assigned.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__canvas {
+  background-color: #f0f0f0;
+  background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%), linear-gradient(-45deg, #e0e0e0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e0e0e0 75%), linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Badge — floating overlay with block identification info.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  text-align: center;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Badge icon — dashicons format-image icon.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__badge-icon {
+  font-size: 24px;
+  color: #949494;
+  line-height: 1;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Badge label — primary identification text.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__badge-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e1e1e;
+  line-height: 1.4;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Badge hint — secondary descriptive text.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__badge-hint {
+  font-size: 11px;
+  color: #757575;
+  line-height: 1.3;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Media controls — vertical layout for upload/replace buttons.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__media-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Preview — bordered container for the current term image.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__preview {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Preview image — fills the preview container.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__preview-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Preview actions — button row below the preview image.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__preview-actions {
+  padding: 12px;
+  display: flex;
+  gap: 8px;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Help text — italic hint below the media controls.
+   */
+}
+.wp-block-carstingaxion-term-image-block .term-image-block__help-text {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #757575;
+  font-style: italic;
+}
+.wp-block-carstingaxion-term-image-block {
+  /**
+   * Notice spacing fix within the inspector panel.
+   */
+}
+.wp-block-carstingaxion-term-image-block .components-notice {
+  margin: 0 0 12px;
+}
+
+/*# sourceMappingURL=index.css.map*/

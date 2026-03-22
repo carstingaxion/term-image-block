@@ -24,8 +24,8 @@ import { TERM_IMAGE_META_KEY } from '../constants';
 /**
  * Manage saving and removing term images via the core data store.
  *
- * @param {number} termId   Current term ID.
- * @param {string} taxonomy Current taxonomy slug.
+ * @param {number} termId   Effective term ID (from attributes or context).
+ * @param {string} taxonomy Effective taxonomy slug (from attributes or context).
  * @return {{
  *   saving: boolean,
  *   error: string,

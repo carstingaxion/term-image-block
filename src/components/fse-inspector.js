@@ -12,7 +12,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import { PanelBody, SelectControl, Notice } from '@wordpress/components';
 
 /**
  * Internal dependencies.
@@ -28,6 +28,7 @@ import { buildTaxonomyOptions } from '../utils';
  * @param {Function}      props.setAttributes    Block attribute setter.
  * @param {string}        props.taxonomy         Current taxonomy slug.
  * @param {Array<Object>} props.publicTaxonomies Filtered public taxonomies.
+ * @param {string}        [props.contextInfo]    Info about context-provided values.
  * @return {Element} Inspector controls element.
  */
 export default function FSEInspector( {
@@ -35,6 +36,7 @@ export default function FSEInspector( {
 	setAttributes,
 	taxonomy,
 	publicTaxonomies,
+	contextInfo = '',
 } ) {
 	/** @type {Array<{label: string, value: string}>} */
 	const taxonomyOptions = buildTaxonomyOptions(
@@ -48,6 +50,11 @@ export default function FSEInspector( {
 				title={ __( 'Term Detection', 'term-image-block' ) }
 				initialOpen={ true }
 			>
+				{ contextInfo && (
+					<Notice status="info" isDismissible={ false }>
+						{ contextInfo }
+					</Notice>
+				) }
 				<SelectControl
 					label={ __( 'Taxonomy', 'term-image-block' ) }
 					value={ taxonomy }

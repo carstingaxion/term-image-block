@@ -12,7 +12,9 @@
 /**
  * WordPress dependencies.
  */
+import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
+import { Notice } from '@wordpress/components';
 
 /**
  * Internal dependencies.
@@ -27,8 +29,10 @@ import DisplaySettingsPanel from './display-settings-panel';
  * @param {Object}        props                  Component props.
  * @param {Object}        props.attributes       Block attributes.
  * @param {Function}      props.setAttributes    Block attribute setter.
- * @param {string}        props.taxonomy         Current taxonomy slug.
- * @param {number}        props.termId           Current term ID.
+ * @param {string}        props.taxonomy         Current taxonomy attribute.
+ * @param {number}        props.termId           Current term ID attribute.
+ * @param {number}        props.effectiveTermId  Resolved term ID (attribute or context).
+ * @param {boolean}       props.isFromContext    Whether values come from block context.
  * @param {Array<Object>} props.publicTaxonomies Filtered public taxonomies.
  * @param {Array<Object>} props.terms            Terms for the selected taxonomy.
  * @param {boolean}       props.isTermsLoading   Whether terms are loading.
@@ -49,6 +53,8 @@ export default function StandardInspector( {
 	setAttributes,
 	taxonomy,
 	termId,
+	effectiveTermId,
+	isFromContext,
 	publicTaxonomies,
 	terms,
 	isTermsLoading,
@@ -65,6 +71,15 @@ export default function StandardInspector( {
 } ) {
 	return (
 		<InspectorControls>
+			{ isFromContext && (
+				<Notice status="info" isDismissible={ false }>
+					{ __(
+						'Term data is provided by a parent block. Set taxonomy and term manually to override.',
+						'term-image-block'
+					) }
+				</Notice>
+			) }
+
 			<TermSelectionPanel
 				taxonomy={ taxonomy }
 				termId={ termId }
@@ -75,7 +90,7 @@ export default function StandardInspector( {
 				onClearMessages={ onClearMessages }
 			/>
 
-			{ termId > 0 && (
+			{ effectiveTermId > 0 && (
 				<TermImagePanel
 					termImageId={ termImageId }
 					imageUrl={ imageUrl }
