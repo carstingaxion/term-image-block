@@ -36,7 +36,7 @@
 		"customCaption": {
 			"type": "string",
 			"default": ""
-		},
+		}
 	},
 	"supports": {
 		"align": ["left", "center", "right", "wide", "full"],
