@@ -40,14 +40,8 @@ export default function DisplaySettingsPanel( {
 	termName = '',
 	initialOpen = false,
 } ) {
-	const {
-		imageSize,
-		aspectRatio,
-		linkToTerm,
-		showCaption,
-		customCaption,
-		hideIfNoImage,
-	} = attributes;
+	const { imageSize, aspectRatio, linkToTerm, showCaption, customCaption } =
+		attributes;
 
 	return (
 		<PanelBody
@@ -94,17 +88,6 @@ export default function DisplaySettingsPanel( {
 					) }
 				/>
 			) }
-			<ToggleControl
-				label={ __( 'Hide if no image', 'term-image-block' ) }
-				checked={ hideIfNoImage }
-				onChange={ ( value ) =>
-					setAttributes( { hideIfNoImage: value } )
-				}
-				help={ __(
-					'Hide the block on frontend if term has no image',
-					'term-image-block'
-				) }
-			/>
 		</PanelBody>
 	);
 }

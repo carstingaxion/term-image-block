@@ -37,10 +37,6 @@
 			"type": "string",
 			"default": ""
 		},
-		"hideIfNoImage": {
-			"type": "boolean",
-			"default": false
-		}
 	},
 	"supports": {
 		"align": ["left", "center", "right", "wide", "full"],

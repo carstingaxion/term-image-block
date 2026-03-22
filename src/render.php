@@ -21,6 +21,7 @@ if ( ! class_exists( 'Carstingaxion_Term_Image_Renderer' ) ) {
 	 * @since 0.1.0
 	 */
 	class Carstingaxion_Term_Image_Renderer {
+	
 
 		/**
 		 * Singleton instance.
@@ -113,6 +114,9 @@ if ( ! class_exists( 'Carstingaxion_Term_Image_Renderer' ) ) {
 		/**
 		 * Build the complete block HTML output.
 		 *
+		 * Returns an empty string when no image is set, effectively
+		 * hiding the block on the frontend.
+		 *
 		 * @since 0.1.0
 		 *
 		 * @param  array<string, mixed> $attributes Block attributes.
@@ -121,9 +125,7 @@ if ( ! class_exists( 'Carstingaxion_Term_Image_Renderer' ) ) {
 		 * @return string Rendered HTML or empty string.
 		 */
 		private function build_output( array $attributes, WP_Term $term, int $image_id ): string {
-			$hide_if_no_image = $this->get_bool_attribute( $attributes, 'hideIfNoImage' );
-
-			if ( ! $image_id && $hide_if_no_image ) {
+			if ( ! $image_id ) {
 				return '';
 			}
 
@@ -133,14 +135,6 @@ if ( ! class_exists( 'Carstingaxion_Term_Image_Renderer' ) ) {
 					'class' => 'term-image-block--aspect-ratio-' . esc_attr( $aspect_ratio ),
 				)
 			);
-
-			if ( ! $image_id ) {
-				return sprintf(
-					'<div %s><div class="term-image-block__empty">%s</div></div>',
-					$wrapper_attributes,
-					esc_html__( 'No image set for this term.', 'term-image-block' )
-				);
-			}
 
 			$image_size = $this->get_string_attribute( $attributes, 'imageSize', 'large' );
 			$image_html = $this->build_image_html( $image_id, $image_size, $term->name );
