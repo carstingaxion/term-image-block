@@ -185,15 +185,9 @@ Yes — choose from Thumbnail, Medium, Large, or Full in the Display Settings pa
 
 ## Changelog
 
-### 0.1.0
+All notable changes to this project will be documented in the [CHANGELOG.md](CHANGELOG.md).
 
-- Initial release
-- Automatic term detection on archive pages
-- Full FSE template support
-- Manual term selection with taxonomy picker
-- Image upload, edit, and delete functionality
-- Image size and aspect ratio controls
-- Link and caption options
-- Responsive placeholder design
-- `core/image` block styles inheritance
-- Compatible with WP Term Images by JJJ
+
+## License
+
+GPLv2 or later. See https://www.gnu.org/licenses/gpl-2.0.html
