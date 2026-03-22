@@ -178,7 +178,7 @@ Add the block, select a taxonomy and term, then use the "Upload Image" button in
 Yes — the block works with categories, tags, and any custom taxonomy registered with `'public' => true`.
 
 **What happens if a term has no image?**
-The block shows a placeholder in the editor. On the frontend, enable "Hide if no image" to hide it entirely.
+The block shows a placeholder in the editor. On the frontend, the block is automatically hidden — no empty markup is rendered.
 
 **Can I customize the image size?**
 Yes — choose from Thumbnail, Medium, Large, or Full in the Display Settings panel.

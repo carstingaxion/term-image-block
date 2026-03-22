@@ -44,10 +44,6 @@
     "customCaption": {
       "type": "string",
       "default": ""
-    },
-    "hideIfNoImage": {
-      "type": "boolean",
-      "default": false
     }
   },
   "supports": {
