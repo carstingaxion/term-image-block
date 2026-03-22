@@ -1,0 +1,293 @@
+# Copyright (C) 2026 Carsten Bach
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Term Image Block 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/term-image-block\n"
+"POT-Creation-Date: 2026-03-22T12:00:47+01:00\n"
+"PO-Revision-Date: 2026-03-22 12:03+0100\n"
+"Last-Translator: Carsten Bach\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Domain: term-image-block\n"
+
+#. Plugin Name of the plugin
+msgid "Term Image Block"
+msgstr "Term-Bild-Block"
+
+#. Description of the plugin
+msgid ""
+"Display taxonomy term images with automatic detection and manual selection."
+msgstr ""
+"Zeigt Taxonomie-Term-Bilder mit automatischer Erkennung und manueller "
+"Auswahl an."
+
+#. Author of the plugin
+msgid "Carsten Bach"
+msgstr "Carsten Bach"
+
+#: build/index.js:1 src/constants.js:22
+msgid "Thumbnail"
+msgstr "Miniaturbild"
+
+#: build/index.js:1 src/constants.js:23
+msgid "Medium"
+msgstr "Mittel"
+
+#: build/index.js:1 src/constants.js:24
+msgid "Large"
+msgstr "Groß"
+
+#: build/index.js:1 src/constants.js:25
+msgid "Full"
+msgstr "Vollständig"
+
+#: build/index.js:1 src/constants.js:34
+msgid "Auto"
+msgstr "Automatisch"
+
+#: build/index.js:1 src/constants.js:35
+msgid "Square (1:1)"
+msgstr "Quadratisch (1:1)"
+
+#: build/index.js:1 src/constants.js:36
+msgid "Landscape (16:9)"
+msgstr "Querformat (16:9)"
+
+#: build/index.js:1 src/constants.js:37
+msgid "Portrait (9:16)"
+msgstr "Hochformat (9:16)"
+
+#: build/index.js:1 src/constants.js:38
+msgid "Wide (21:9)"
+msgstr "Breitbild (21:9)"
+
+#: build/index.js:1 src/components/display-settings-panel.js:48
+msgid "Display Settings"
+msgstr "Anzeigeeinstellungen"
+
+#: build/index.js:1 src/components/display-settings-panel.js:52
+msgid "Image Size"
+msgstr "Bildgröße"
+
+#: build/index.js:1 src/components/display-settings-panel.js:58
+msgid "Aspect Ratio"
+msgstr "Seitenverhältnis"
+
+#: build/index.js:1 src/components/display-settings-panel.js:66
+msgid "Link to term archive"
+msgstr "Zum Term-Archiv verlinken"
+
+#: build/index.js:1 src/components/display-settings-panel.js:71
+msgid "Show caption"
+msgstr "Bildunterschrift anzeigen"
+
+#: build/index.js:1 src/components/display-settings-panel.js:79
+msgid "Custom caption"
+msgstr "Eigene Bildunterschrift"
+
+#: build/index.js:1 src/components/display-settings-panel.js:85
+msgid "Leave empty to use term name"
+msgstr "Leer lassen, um den Term-Namen zu verwenden"
+
+#: build/index.js:1 src/components/term-selection-panel.js:47
+msgid "Select a taxonomy"
+msgstr "Taxonomie auswählen"
+
+#: build/index.js:1 src/components/term-selection-panel.js:53
+msgid "Select a term"
+msgstr "Term auswählen"
+
+#: build/index.js:1 src/components/term-selection-panel.js:58
+msgid "Term Selection"
+msgstr "Term-Auswahl"
+
+#: build/index.js:1 src/components/fse-inspector.js:59
+#: src/components/term-selection-panel.js:62
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: build/index.js:1 src/components/term-selection-panel.js:69
+msgid "Choose a taxonomy to select terms from"
+msgstr "Wähle eine Taxonomie, aus der Terms ausgewählt werden sollen"
+
+#: build/index.js:1 src/components/term-selection-panel.js:80
+msgid "Term"
+msgstr "Term"
+
+#: build/index.js:1 src/components/term-selection-panel.js:89
+msgid "Leave empty to auto-detect on archive pages"
+msgstr "Leer lassen, um auf Archivseiten automatisch zu erkennen"
+
+#: build/index.js:1 build/index.js:3 build/index.js:4
+#: src/components/term-image-panel.js:46 src/edit.js:163 src/edit.js:222
+#: src/edit.js:286
+msgid "Term Image"
+msgstr "Term-Bild"
+
+#: build/index.js:1 src/components/term-image-panel.js:83
+msgid "Replace Image"
+msgstr "Bild ersetzen"
+
+#: build/index.js:1 src/components/term-image-panel.js:95
+msgid "Remove Image"
+msgstr "Bild entfernen"
+
+#: build/index.js:1 src/components/term-image-panel.js:109
+msgid "Upload Image"
+msgstr "Bild hochladen"
+
+#: build/index.js:1 src/components/term-image-panel.js:122
+msgid ""
+"This image will be saved to the term and available for use throughout your "
+"site."
+msgstr ""
+"Dieses Bild wird beim Term gespeichert und kann überall auf deiner Website "
+"verwendet werden."
+
+#: build/index.js:1 src/components/fse-inspector.js:44
+msgid "Auto-detect (archive pages)"
+msgstr "Automatisch erkennen (Archivseiten)"
+
+#: build/index.js:1 src/components/fse-inspector.js:50
+msgid "Term Detection"
+msgstr "Term-Erkennung"
+
+#: build/index.js:1 src/components/fse-inspector.js:67
+msgid ""
+"The block will use the first term from this taxonomy assigned to the current "
+"post, or the queried term on archive pages."
+msgstr ""
+"Der Block verwendet den ersten Term dieser Taxonomie, der dem aktuellen "
+"Beitrag zugewiesen ist, oder den abgefragten Term auf Archivseiten."
+
+#: build/index.js:1 src/components/fse-inspector.js:71
+msgid "Auto-detect uses the queried term on taxonomy archive pages."
+msgstr ""
+"Die automatische Erkennung verwendet den abgefragten Term auf Taxonomie-"
+"Archivseiten."
+
+#: build/index.js:1 src/components/standard-inspector.js:76
+msgid ""
+"Term data is provided by a parent block. Set taxonomy and term manually to "
+"override."
+msgstr ""
+"Die Term-Daten werden von einem übergeordneten Block bereitgestellt. "
+"Taxonomie und Term manuell festlegen, um dies zu überschreiben."
+
+#: build/index.js:1 src/hooks/use-term-image-manager.js:85
+msgid "Term image updated successfully!"
+msgstr "Term-Bild erfolgreich aktualisiert!"
+
+#: build/index.js:1 src/hooks/use-term-image-manager.js:89
+msgid "Term image removed successfully!"
+msgstr "Term-Bild erfolgreich entfernt!"
+
+#: build/index.js:1 src/hooks/use-term-image-manager.js:99
+msgid "Failed to update term image"
+msgstr "Term-Bild konnte nicht aktualisiert werden"
+
+#. translators: %1$s: term name, %2$s: taxonomy label
+#: build/index.js:2 src/edit.js:187
+msgid "From context: %1$s (%2$s)"
+msgstr "Aus Kontext: %1$s (%2$s)"
+
+#. translators: %s: term name
+#. translators: %s: taxonomy label
+#: build/index.js:3 build/index.js:4 src/edit.js:216 src/edit.js:249
+msgid "Term Image — %s"
+msgstr "Term-Bild — %s"
+
+#: build/index.js:3 src/edit.js:224
+msgid "No image set for this term"
+msgstr "Kein Bild für diesen Term festgelegt"
+
+#: build/index.js:3 build/index.js:4 src/edit.js:232 src/edit.js:273
+#: src/edit.js:310
+msgid "Term name"
+msgstr "Term-Name"
+
+#: build/index.js:4 src/edit.js:252
+msgid "Term Image — Auto-detect"
+msgstr "Term-Bild — Automatisch erkennen"
+
+#: build/index.js:4 src/edit.js:255
+msgid "Resolves from current post or archive"
+msgstr "Wird aus aktuellem Beitrag oder Archiv aufgelöst"
+
+#: build/index.js:4 src/edit.js:256
+msgid "Uses queried term on archive pages"
+msgstr "Verwendet den abgefragten Term auf Archivseiten"
+
+#: build/index.js:4 src/edit.js:285
+msgid "No image set"
+msgstr "Kein Bild festgelegt"
+
+#: build/index.js:4 src/edit.js:292
+msgid "Use the Term Image panel to upload one"
+msgstr "Verwende das Term-Bild-Panel, um eines hochzuladen"
+
+#: build/index.js:4 src/edit.js:297
+msgid "Receiving term from parent block context"
+msgstr "Term wird aus dem übergeordneten Block-Kontext bezogen"
+
+#: build/index.js:4 src/edit.js:302
+msgid "Select a taxonomy and term in the sidebar"
+msgstr "Wähle eine Taxonomie und einen Term in der Seitenleiste"
+
+#: build/index.js:4 src/edit.js:342
+msgid "Clear selection"
+msgstr "Auswahl aufheben"
+
+#: build/block.json src/block.json
+msgctxt "block title"
+msgid "Term Image"
+msgstr "Term-Bild"
+
+#: build/block.json src/block.json
+msgctxt "block description"
+msgid ""
+"Display taxonomy term images with automatic detection and manual selection"
+msgstr ""
+"Zeigt Taxonomie-Term-Bilder mit automatischer Erkennung und manueller "
+"Auswahl an"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "taxonomy"
+msgstr "Taxonomie"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "term"
+msgstr "Term"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "category"
+msgstr "Kategorie"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "tag"
+msgstr "Schlagwort"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr "Bild"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "fse"
+msgstr "FSE"
+
+#: build/block.json src/block.json
+msgctxt "block keyword"
+msgid "template"
+msgstr "Vorlage"
