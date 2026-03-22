@@ -29,9 +29,6 @@ if ( ! class_exists( 'Carstingaxion_Term_Image_Block' ) ) {
 	 * @since 0.1.0
 	 */
 	class Carstingaxion_Term_Image_Block {
-	
-	
-
 		/**
 		 * Singleton instance.
 		 *
@@ -122,7 +119,7 @@ if ( ! class_exists( 'Carstingaxion_Term_Image_Block' ) ) {
 			/**
 			 * Get all public taxonomies to register the meta field for each.
 			 *
-			 * @var string[] $taxonomies 
+			 * @var string[] $taxonomies
 			 */
 			$taxonomies = get_taxonomies( array( 'public' => true ) );
 
